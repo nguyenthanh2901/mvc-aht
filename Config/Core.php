@@ -6,8 +6,5 @@ use MVC\Config\Database;
 use MVC\Core\Model;
 use MVC\Core\Controller;
 namespace MVC\Config;
-class Core
-{
 
-}
 ?>

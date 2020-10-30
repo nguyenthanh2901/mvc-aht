@@ -4,7 +4,7 @@ namespace MVC\Controllers;
 use MVC\Core\Controller;
 use MVC\Models\Task;
 
-class tasksController extends Controller
+class Tasks extends Controller
     {
     function index()
     {

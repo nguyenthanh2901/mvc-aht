@@ -14,8 +14,10 @@ namespace MVC\Core;
         public function render($filename)
         {
             extract($this->vars);
-            ob_start();
-            require(ROOT . "Views/" . ucfirst(str_replace('Controller', '', get_class($this))) . '/' . $filename . '.php');
+            ob_start(); 
+            // require(ROOT . "Views/" . ucfirst(str_replace('Controller', '', get_class($this))) . '/' . $filename . '.php');
+            require(ROOT . "Views/" . ucfirst(str_replace('MVC\Controllers', '', get_class($this))) . '/' . $filename . '.php');
+
             $content_for_layout = ob_get_clean();
 
             if ($this->layout == false) {
