@@ -4,6 +4,7 @@ namespace MVC;
 use MVC\Request;
 use MVC\Router;
 use MVC\Controllers\Tasks;
+
 class Dispatcher
 {
     private $request;
@@ -21,10 +22,11 @@ class Dispatcher
 
     public function loadController()
     {
-        // $name = $this->request->controller . "Controller";
-        // $file = ROOT . 'Controllers/' . $name . '.php';
+        // $name = $this->request->controller;
+        // $file = 'MVC/' . 'Controllers/' . $name; 
         // require($file);
-        // $controller = new $name(); 
+      
+        // $controller = new $name();
         $controller = new Tasks();
         return $controller;
     }

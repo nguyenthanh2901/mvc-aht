@@ -5,11 +5,9 @@ use MVC\Core\Controller;
 use MVC\Models\Task;
 
 class Tasks extends Controller
+{
+    public function index()
     {
-    function index()
-    {
-        
-
         $tasks = new Task();
 
         $d['tasks'] = $tasks->showAllTasks();
@@ -17,16 +15,12 @@ class Tasks extends Controller
         $this->render("index");
     }
 
-    function create()
+    public function create()
     {
-        if (isset($_POST["title"]))
-        {
-            
-
+        if (isset($_POST["title"])) {
             $task= new Task();
 
-            if ($task->create($_POST["title"], $_POST["description"]))
-            {
+            if ($task->create($_POST["title"], $_POST["description"])) {
                 header("Location: " . WEBROOT . "tasks/index");
             }
         }
@@ -34,17 +28,14 @@ class Tasks extends Controller
         $this->render("create");
     }
 
-    function edit($id)
+    public function edit($id)
     {
-        
         $task= new Task();
 
         $d["task"] = $task->showTask($id);
 
-        if (isset($_POST["title"]))
-        {
-            if ($task->edit($id, $_POST["title"], $_POST["description"]))
-            {
+        if (isset($_POST["title"])) {
+            if ($task->edit($id, $_POST["title"], $_POST["description"])) {
                 header("Location: " . WEBROOT . "tasks/index");
             }
         }
@@ -52,16 +43,11 @@ class Tasks extends Controller
         $this->render("edit");
     }
 
-    function delete($id)
+    public function delete($id)
     {
-        
-
         $task = new Task();
-        if ($task->delete($id))
-        {
+        if ($task->delete($id)) {
             header("Location: " . WEBROOT . "tasks/index");
         }
     }
 }
-
-?>
