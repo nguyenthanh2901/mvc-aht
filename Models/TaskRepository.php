@@ -15,7 +15,8 @@ class TaskRepository
         return $this->taskResourceModel->save($model);
     }
 
-    public function getAll() {
+    public function getAll() 
+    {
         return $this->taskResourceModel->getAll();
     }
 
