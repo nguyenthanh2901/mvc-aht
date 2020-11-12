@@ -24,11 +24,13 @@ class Dispatcher
     public function loadController()
     {
         // $name = $this->request->controller;
-        // $file = 'MVC/' . 'Controllers/' . $name; 
+        $name = 'MVC\\' . 'Controllers\\' . ucfirst($this->request->controller).'Controller';
+        // print_r($name);
+        // die;
         // require($file);
       
         // $controller = new $name();
-        $controller = new TasksController();
+        $controller = new $name;
         return $controller;
     }
 }
